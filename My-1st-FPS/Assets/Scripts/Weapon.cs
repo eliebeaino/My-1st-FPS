@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] float range = 100f;
     [SerializeField] float WpnDmg = 1f;
     [SerializeField] ParticleSystem muzzleFlash;
+    [SerializeField] GameObject hitSpark;
 
 
     void Update()
@@ -25,6 +26,7 @@ public class Weapon : MonoBehaviour
         ProcessRaycast();
     }
 
+    // play the muzzle flash vfx when shooting
     private void PlayMuzzleFlash()
     {
         muzzleFlash.Play();
@@ -36,13 +38,18 @@ public class Weapon : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(FPCamera.transform.position, FPCamera.transform.forward, out hit, range))
         {
+            CreateHitImpact(hit);
             if (hit.transform.tag == "Enemy")
             {
                 hit.transform.GetComponent<EnemyHealth>().TakeDmg(WpnDmg);
             }
-            // todo add some hit efffect for visual players
         }
         else return;  // if we don't hit anything return to avoid null reference from raycast
     }
 
+    private void CreateHitImpact(RaycastHit hit)
+    {
+        GameObject hitVFX = Instantiate(hitSpark, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(hitVFX, 0.1f);
+    }
 }

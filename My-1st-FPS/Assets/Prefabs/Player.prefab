@@ -16,6 +16,8 @@ MonoBehaviour:
   range: 100
   WpnDmg: 30
   muzzleFlash: {fileID: 1762203232649681911}
+  hitSpark: {fileID: 6086845085224184602, guid: 917cec001844bbc44b7d8e93c22a1a0a,
+    type: 3}
 --- !u!1 &8193341927374494257
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,6 +509,31 @@ PrefabInstance:
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].time
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620094496677561637, guid: 48a8a44cbb30d064fbc7bf84808219b9,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.r
+      value: 0.9160466
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620094496677561637, guid: 48a8a44cbb30d064fbc7bf84808219b9,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620094496677561637, guid: 48a8a44cbb30d064fbc7bf84808219b9,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key2.r
+      value: 0.3773585
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620094496677561637, guid: 48a8a44cbb30d064fbc7bf84808219b9,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key2.g
+      value: 0.04805981
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620094496677561637, guid: 48a8a44cbb30d064fbc7bf84808219b9,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key2.b
+      value: 0.04805981
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48a8a44cbb30d064fbc7bf84808219b9, type: 3}
