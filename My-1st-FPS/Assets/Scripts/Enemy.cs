@@ -13,10 +13,11 @@ public class Enemy : MonoBehaviour
     public float enemyDamage = 40f;
     public float deathTimer = 3f; // timer before corpse disappears after death
 
-    // calculate new health after taking damage
+    // calculate new health after taking damage and ensures the enemy is provoked
     public void TakeDmg(float damage)
     {
         enemyHealth -= damage;
+        enemyAI.OnDmgTaken();
         if (enemyHealth <= 0)
         {
             Die();

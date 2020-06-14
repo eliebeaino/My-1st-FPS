@@ -51,6 +51,12 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    // when enemy takes damage, triggers him to start engage target sequence
+    public void OnDmgTaken()
+    {
+        isProvoked = true;
+    }
+
     // move the enemy towards postiion of the target and start the animation for move - stop the attack if enemy was attacking prior
     private void ChaseTarget()
     {
