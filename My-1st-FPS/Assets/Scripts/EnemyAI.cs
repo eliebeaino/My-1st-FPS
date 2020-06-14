@@ -7,10 +7,11 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] Transform target;
-    [SerializeField] float chaseRange = 5f;         // range at which the enemy starts chasing the target
+    [Header("Import Assets")]
+    public Transform target;
     [SerializeField] Animator animator;  
     [SerializeField] NavMeshAgent navMeshAgent;
+    [SerializeField] float chaseRange = 5f;         // range at which the enemy starts chasing the target
     float distanceToTarget = Mathf.Infinity;
     bool isProvoked;
 
@@ -49,10 +50,9 @@ public class EnemyAI : MonoBehaviour
         animator.SetBool("Attack", false);
     }
 
-    // attack the player - start attacking animation
+    // start attacking animation
     private void AttackTarget()
-    {
-        print("attack");
+    { 
         animator.SetBool("Attack", true);
     }
 
@@ -63,6 +63,7 @@ public class EnemyAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, chaseRange);
     }
 
+    // start Death Animation and stop the enemy movement - called once when enemy health reaches 0
     public void EnemyIsDead()
     {
         navMeshAgent.isStopped = true;

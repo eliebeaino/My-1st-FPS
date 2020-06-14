@@ -1221,9 +1221,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  chaseRange: 10
   animator: {fileID: 3742536023014977918}
   navMeshAgent: {fileID: -6119490225144774788}
+  chaseRange: 10
 --- !u!114 &7643575765401069810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1237,6 +1237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 100
+  enemyDamage: 40
   deathTimer: 3
 --- !u!1 &3742536023007576826
 GameObject:
