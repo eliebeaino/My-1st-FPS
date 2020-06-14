@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FPCamera: {fileID: 8193341927373379607}
-  range: 100
-  WpnDmg: 30
   muzzleFlash: {fileID: 1762203232649681911}
   hitSpark: {fileID: 6086845085224184602, guid: 917cec001844bbc44b7d8e93c22a1a0a,
     type: 3}
+  range: 100
+  WpnDmg: 30
 --- !u!1 &8193341927374494257
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,6 +30,7 @@ GameObject:
   - component: {fileID: 8193341927369439575}
   - component: {fileID: 8193341927378557335}
   - component: {fileID: 8193341927380545491}
+  - component: {fileID: 1654646828}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -151,6 +152,19 @@ MonoBehaviour:
     slowDownRate: 20
     airControl: 0
     shellOffset: 0
+--- !u!114 &1654646828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8193341927374494257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d9aedda12e306948a06f20e2bdb26d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: 100
 --- !u!1 &8193341927374494259
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8193341927374494259}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5878936304203204990}

@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Import Assets")]
+    [SerializeField] EnemyAI enemyAI;
 
+    [Header("Enemy Stats")]
     public float enemyHealth = 100f;
     public float enemyDamage = 40f;
     public float deathTimer = 3f; // timer before corpse disappears after death
@@ -24,13 +27,15 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject, deathTimer);
-        GetComponent<EnemyAI>().EnemyIsDead();
+        enemyAI.EnemyIsDead();
         Destroy(this);
     }
 
     public void DamagePlayerEvent()
     {
-        // todo deal damage to player
-        Debug.Log("Attacking " + GetComponent<EnemyAI>().target.name);
+        var player = enemyAI.target.GetComponent<Player>();
+        if (player == null) return;
+        player.TakeDmg(enemyDamage);
+        // todo add visual queue for player damage
     }
 }

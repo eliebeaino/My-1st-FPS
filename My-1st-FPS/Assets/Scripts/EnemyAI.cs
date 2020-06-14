@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Security.Policy;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityStandardAssets.Cameras;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -11,27 +12,35 @@ public class EnemyAI : MonoBehaviour
     public Transform target;
     [SerializeField] Animator animator;  
     [SerializeField] NavMeshAgent navMeshAgent;
+
+    [Header("Enemy Propreties")]
     [SerializeField] float chaseRange = 5f;         // range at which the enemy starts chasing the target
+    [SerializeField] float turnSpeed = 5f;          // enemy turn speed to face player
     float distanceToTarget = Mathf.Infinity;
     bool isProvoked;
+    bool isAlive = true;
 
 
     void Update()
     {
-        distanceToTarget = Vector3.Distance(target.position, transform.position);
-        if (isProvoked)
+        if (isAlive)
         {
-            EngageTarget();
-        }
-        else if (distanceToTarget <= chaseRange)
-        {
-            isProvoked = true;        
+            distanceToTarget = Vector3.Distance(target.position, transform.position);
+            if (isProvoked)
+            {
+                EngageTarget();
+            }
+            else if (distanceToTarget <= chaseRange)
+            {
+                isProvoked = true;
+            }
         }
     }
 
     // check how close to target, then chase or attack accordingly
     private void EngageTarget()
     {
+        FaceTarget();
         if (distanceToTarget >= navMeshAgent.stoppingDistance)
         {
             ChaseTarget();
@@ -56,6 +65,13 @@ public class EnemyAI : MonoBehaviour
         animator.SetBool("Attack", true);
     }
 
+    private void FaceTarget()
+    {
+        Vector3 direction = (target.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed);
+    }
+
     // Display the radius of enemy to be active when selected
     void OnDrawGizmosSelected()
     {
@@ -68,5 +84,6 @@ public class EnemyAI : MonoBehaviour
     {
         navMeshAgent.isStopped = true;
         animator.SetTrigger("Dead");
+        isAlive = false;
     }
 }
