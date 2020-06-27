@@ -133,7 +133,7 @@ MonoBehaviour:
   audioSource: {fileID: 1279140878879109790}
   range: 100
   WpnDmg: 30
-  InitFireRate: 0.22
+  fireRate: 0.22
 --- !u!1 &6992154098791493190
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,7 +390,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6989766401465011850
 Transform:
   m_ObjectHideFlags: 0
@@ -478,7 +478,7 @@ MonoBehaviour:
   audioSource: {fileID: 5656340510137289755}
   range: 100
   WpnDmg: 10
-  InitFireRate: 0.13
+  fireRate: 0.15
 --- !u!82 &5656340510137289755
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1063,7 +1063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 6f966b9a7c817ed49973b4a8762cbbdf, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6f966b9a7c817ed49973b4a8762cbbdf, type: 3}
       propertyPath: m_LocalPosition.x

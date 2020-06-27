@@ -16,41 +16,19 @@ public class Weapon : MonoBehaviour
     [Header("Weapon Stats")]
     [SerializeField] float range = 100f;
     [SerializeField] float WpnDmg = 25f;
-    [SerializeField] float InitFireRate = 0.5f;
-    float fireRate = 0f;
+    [SerializeField] float fireRate = 0.5f;
+    bool canShoot = true;
 
     void Update()
     {
-        if (Input.GetMouseButton(0) && CanWeShoot() && FireRate())
+        if (Input.GetMouseButton(0) && HaveAmmo() && canShoot)
         {
-            Shoot();
-        }
-        else if (Input.GetMouseButtonDown(0) && CanWeShoot() && FireRate())
-        {
-            Shoot();
-        }
-        else if (fireRate > 0)
-        { 
-            fireRate -= Time.deltaTime;
+            StartCoroutine(Shoot());
         }
     }
 
-    private bool FireRate()
-    {
-        if (fireRate > 0)
-        {
-            fireRate -= Time.deltaTime;
-            return false;
-        }
-        else
-        {
-            fireRate = InitFireRate;
-            return true;
-        }
-    }
-
-    // check we can shoot
-    private bool CanWeShoot()
+    // check if we have enough ammo
+    private bool HaveAmmo()
     {
         if (ammoSlot.GetCurrentAmmo() > 0)
             return true;
@@ -58,12 +36,15 @@ public class Weapon : MonoBehaviour
             return false;
     }
 
-    private void Shoot()
+    IEnumerator Shoot()
     {
+        canShoot = false;
         PlayMuzzleFlash();
         ProcessRaycast();
         ammoSlot.DecreaseAmmo();
         audioSource.PlayOneShot(WpnSFX);
+        yield return new WaitForSeconds(fireRate);
+        canShoot = true;
     }
 
     // play the muzzle flash vfx when shooting
