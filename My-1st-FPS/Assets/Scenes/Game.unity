@@ -1584,20 +1584,20 @@ PrefabInstance:
       propertyPath: gameOverCanvas
       value: 
       objectReference: {fileID: 166786308}
-    - target: {fileID: 5506458364232289381, guid: 1af0e6bf6ec4a5a46a40461c7927eee3,
+    - target: {fileID: 432452949813651157, guid: 1af0e6bf6ec4a5a46a40461c7927eee3,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5704616760769658486, guid: 1af0e6bf6ec4a5a46a40461c7927eee3,
+    - target: {fileID: 5506458364232289381, guid: 1af0e6bf6ec4a5a46a40461c7927eee3,
         type: 3}
-      propertyPath: fireRate
-      value: 0.12
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6992896725484005512, guid: 1af0e6bf6ec4a5a46a40461c7927eee3,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8193341927374494257, guid: 1af0e6bf6ec4a5a46a40461c7927eee3,
         type: 3}

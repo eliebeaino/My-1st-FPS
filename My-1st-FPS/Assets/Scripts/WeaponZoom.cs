@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
@@ -12,8 +13,10 @@ public class WeaponZoom : MonoBehaviour
     float sensitivityDefault;
     bool zoomInToggle = false;
 
-    //[SerializeField] float zoomedOutFOV;
-    //[SerializeField] float zoomedInFOV = 20f;
+    [SerializeField] float zoomedOutFOV =60f;
+    [SerializeField] float zoomedInFOV = 20f;
+    [SerializeField] float zoomSpeed = 0.5f;
+    float t;
 
     private void Start()
     {
@@ -31,14 +34,37 @@ public class WeaponZoom : MonoBehaviour
                 wpnAnimator.SetBool("ZoomedIn", true);
                 controller.mouseLook.XSensitivity = sensitivityZoomed;
                 controller.mouseLook.YSensitivity = sensitivityZoomed;
-            } 
+                StartCoroutine(ZoomIn());
+            }
             else
             {
                 zoomInToggle = false;
                 wpnAnimator.SetBool("ZoomedIn", false);
                 controller.mouseLook.XSensitivity = sensitivityDefault;
                 controller.mouseLook.YSensitivity = sensitivityDefault;
+                StartCoroutine(ZoomOut());
             }
         }
+    }
+
+    IEnumerator ZoomIn()
+    {
+            while (fpsCamera.fieldOfView > zoomedInFOV)
+            {
+                t += Time.deltaTime * zoomSpeed;
+                fpsCamera.fieldOfView = Mathf.Lerp(zoomedOutFOV, zoomedInFOV, t);
+                yield return null;
+            }
+            t = 0;
+    }
+    IEnumerator ZoomOut()
+    {
+        while (fpsCamera.fieldOfView < zoomedOutFOV)
+        {
+            t += Time.deltaTime * zoomSpeed;
+            fpsCamera.fieldOfView = Mathf.Lerp(zoomedInFOV, zoomedOutFOV, t);
+            yield return null;
+        }
+        t = 0;
     }
 }
