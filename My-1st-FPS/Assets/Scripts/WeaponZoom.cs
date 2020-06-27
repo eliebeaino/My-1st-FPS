@@ -24,6 +24,14 @@ public class WeaponZoom : MonoBehaviour
     bool zoomInToggle = false;                                  // store zoom state in/out
     bool zooming = false;                                       // are we currently zooming ?
 
+    private void OnEnable()
+    {
+        fpsCamera.fieldOfView = zoomedOutFOV;
+        zooming = false;
+        zoomInToggle = false;
+        wpnAnimator.SetBool("ZoomedIn", false);
+    }
+
     private void Start()
     {
         sensitivityDefault = controller.mouseLook.XSensitivity;

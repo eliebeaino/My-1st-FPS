@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject hitSpark;
     [SerializeField] Ammo ammoSlot;
+    [SerializeField] Ammotype ammotype;
     [SerializeField] AudioClip WpnSFX;
     [SerializeField] AudioSource audioSource;
 
@@ -18,6 +19,11 @@ public class Weapon : MonoBehaviour
     [SerializeField] float WpnDmg = 25f;
     [SerializeField] float fireRate = 0.5f;
     bool canShoot = true;
+
+    private void OnEnable()
+    {
+        StartCoroutine(ResetWpnCooldown());
+    }
 
     void Update()
     {
@@ -30,9 +36,9 @@ public class Weapon : MonoBehaviour
     // check if we have enough ammo
     private bool HaveAmmo()
     {
-        if (ammoSlot.GetCurrentAmmo() > 0)
+        if (ammoSlot.GetCurrentAmmo(ammotype) > 0)
             return true;
-        else 
+        else
             return false;
     }
 
@@ -41,7 +47,7 @@ public class Weapon : MonoBehaviour
         canShoot = false;
         PlayMuzzleFlash();
         ProcessRaycast();
-        ammoSlot.DecreaseAmmo();
+        ammoSlot.DecreaseAmmo(ammotype);
         audioSource.PlayOneShot(WpnSFX);
         yield return new WaitForSeconds(fireRate);
         canShoot = true;
@@ -73,5 +79,15 @@ public class Weapon : MonoBehaviour
     {
         GameObject hitVFX = Instantiate(hitSpark, hit.point, Quaternion.LookRotation(hit.normal));
         Destroy(hitVFX, 0.1f);
+    }
+
+    IEnumerator ResetWpnCooldown()
+    {
+        if (canShoot)
+        {
+            yield break;
+        }
+        yield return new WaitForSeconds(fireRate);
+        canShoot = true;
     }
 }

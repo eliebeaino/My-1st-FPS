@@ -4,23 +4,43 @@ using UnityEngine;
 
 public class Ammo : MonoBehaviour
 {
-    [SerializeField] int ammoAmount = 10;
+    [SerializeField] AmmoSlot[] ammoSlots;
 
-    // how much ammo do we have?
-    public int GetCurrentAmmo()
+    [System.Serializable]
+    private class AmmoSlot
     {
-        return ammoAmount;
+        public Ammotype ammotype;
+        public int ammoAmount;
     }
 
-    // reduce ammo when fired
-    public void DecreaseAmmo()
+    //how much corresponding ammo do we have?
+    public int GetCurrentAmmo(Ammotype ammotype)
     {
-        ammoAmount--;
+        return GetAmmotSlot(ammotype).ammoAmount;
     }
 
-    // increase ammo on pickup
+    // reduce corresponding ammo when fired
+    public void DecreaseAmmo(Ammotype ammotype)
+    {
+        GetAmmotSlot(ammotype).ammoAmount--;
+    }
+
+    // increase corresponding ammo on pickup
     public void IncreaseAmmo(int pickUpAmmo)
     {
-        ammoAmount = ammoAmount + pickUpAmmo;
+        //ammoAmount = ammoAmount + pickUpAmmo;
+    }
+
+    // check which weapon we're using and get the ammo type from it
+    private AmmoSlot GetAmmotSlot(Ammotype ammotype)
+    {
+        foreach (AmmoSlot slot in ammoSlots)
+        {
+            if (slot.ammotype == ammotype)
+            {
+                return slot;
+            }  
+        }
+        return null;
     }
 }

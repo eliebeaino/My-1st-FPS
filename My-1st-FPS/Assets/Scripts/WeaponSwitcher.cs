@@ -50,7 +50,7 @@ public class WeaponSwitcher : MonoBehaviour
 
     private void ProcessMouseWheel()
     {
-        if (Input.mouseScrollDelta.y > 0)
+        if (Input.mouseScrollDelta.y < 0)
         {
             if (currentWeapon >= transform.childCount - 2)
             {
@@ -61,7 +61,7 @@ public class WeaponSwitcher : MonoBehaviour
                 currentWeapon++;
             }
         }
-        if (Input.mouseScrollDelta.y < 0)
+        if (Input.mouseScrollDelta.y > 0)
         {
             if (currentWeapon <= 0)
             {

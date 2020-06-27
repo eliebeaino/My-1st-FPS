@@ -103,6 +103,7 @@ MonoBehaviour:
   hitSpark: {fileID: 6086845085224184602, guid: 917cec001844bbc44b7d8e93c22a1a0a,
     type: 3}
   ammoSlot: {fileID: 1173410935}
+  ammotype: 2
   WpnSFX: {fileID: 8300000, guid: 6010ad5fb7bb41242bd94994c680c03d, type: 3}
   audioSource: {fileID: 1173410940}
   range: 100
@@ -624,6 +625,7 @@ MonoBehaviour:
   hitSpark: {fileID: 6086845085224184602, guid: 917cec001844bbc44b7d8e93c22a1a0a,
     type: 3}
   ammoSlot: {fileID: 1173410935}
+  ammotype: 0
   WpnSFX: {fileID: 8300000, guid: 663d1872be6285045ad4860c9d203025, type: 3}
   audioSource: {fileID: 1173410940}
   range: 100
@@ -1067,6 +1069,7 @@ MonoBehaviour:
   hitSpark: {fileID: 6086845085224184602, guid: 917cec001844bbc44b7d8e93c22a1a0a,
     type: 3}
   ammoSlot: {fileID: 1173410935}
+  ammotype: 1
   WpnSFX: {fileID: 8300000, guid: 9f37c7c1c4f6a224a850c368b7c45d06, type: 3}
   audioSource: {fileID: 1173410940}
   range: 100
@@ -1365,7 +1368,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09571159bb0a13745afd8e1ff69f9309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoAmount: 100
+  ammoSlots:
+  - ammotype: 0
+    ammoAmount: 30
+  - ammotype: 1
+    ammoAmount: 100
+  - ammotype: 2
+    ammoAmount: 10
 --- !u!82 &1173410940
 AudioSource:
   m_ObjectHideFlags: 0

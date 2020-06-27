@@ -1580,10 +1580,44 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1173410935, guid: 1af0e6bf6ec4a5a46a40461c7927eee3, type: 3}
+      propertyPath: ammoSlots.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1173410935, guid: 1af0e6bf6ec4a5a46a40461c7927eee3, type: 3}
+      propertyPath: ammoSlots.Array.data[0].ammoAmount
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1173410935, guid: 1af0e6bf6ec4a5a46a40461c7927eee3, type: 3}
+      propertyPath: ammoSlots.Array.data[1].ammotype
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1173410935, guid: 1af0e6bf6ec4a5a46a40461c7927eee3, type: 3}
+      propertyPath: ammoSlots.Array.data[2].ammotype
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1173410935, guid: 1af0e6bf6ec4a5a46a40461c7927eee3, type: 3}
+      propertyPath: ammoSlots.Array.data[2].ammoAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1173410935, guid: 1af0e6bf6ec4a5a46a40461c7927eee3, type: 3}
+      propertyPath: ammoSlots.Array.data[1].ammoAmount
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1654646829, guid: 1af0e6bf6ec4a5a46a40461c7927eee3, type: 3}
       propertyPath: gameOverCanvas
       value: 
       objectReference: {fileID: 166786308}
+    - target: {fileID: 432452949813651158, guid: 1af0e6bf6ec4a5a46a40461c7927eee3,
+        type: 3}
+      propertyPath: ammotype
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5704616760769658486, guid: 1af0e6bf6ec4a5a46a40461c7927eee3,
+        type: 3}
+      propertyPath: ammotype
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8193341927374494257, guid: 1af0e6bf6ec4a5a46a40461c7927eee3,
         type: 3}
       propertyPath: m_Name
