@@ -96,6 +96,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &118395744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5506458364232289381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88cfdea993fd18740850246aac53f38c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fpsCamera: {fileID: 8193341927373379607}
+  wpnAnimator: {fileID: 3012950476977221519}
+  controller: {fileID: 8193341927380545491}
+  sensitivityZoomed: 0.5
 --- !u!114 &2105871956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,7 +133,7 @@ MonoBehaviour:
   audioSource: {fileID: 1279140878879109790}
   range: 100
   WpnDmg: 30
-  InitFireRate: 0.2
+  InitFireRate: 0.22
 --- !u!1 &6992154098791493190
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,7 +390,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6989766401465011850
 Transform:
   m_ObjectHideFlags: 0
@@ -461,8 +477,8 @@ MonoBehaviour:
   WpnSFX: {fileID: 8300000, guid: 9f37c7c1c4f6a224a850c368b7c45d06, type: 3}
   audioSource: {fileID: 5656340510137289755}
   range: 100
-  WpnDmg: 25
-  InitFireRate: 0.1
+  WpnDmg: 10
+  InitFireRate: 0.13
 --- !u!82 &5656340510137289755
 AudioSource:
   m_ObjectHideFlags: 0
@@ -653,7 +669,6 @@ GameObject:
   - component: {fileID: 3012950476977221519}
   - component: {fileID: 1654646828}
   - component: {fileID: 1654646829}
-  - component: {fileID: 2350161504978863685}
   - component: {fileID: 1173410935}
   m_Layer: 0
   m_Name: Player
@@ -821,25 +836,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverCanvas: {fileID: 0}
---- !u!114 &2350161504978863685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8193341927374494257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88cfdea993fd18740850246aac53f38c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fpsCamera: {fileID: 8193341927373379607}
-  wpnAnimator: {fileID: 3012950476977221519}
-  controller: {fileID: 8193341927380545491}
-  zoomedOutFOV: 0
-  zoomedInFOV: 20
-  sensitivityZoomed: 0.5
-  sensitivityDefault: 0
 --- !u!114 &1173410935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1067,7 +1063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 6f966b9a7c817ed49973b4a8762cbbdf, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6f966b9a7c817ed49973b4a8762cbbdf, type: 3}
       propertyPath: m_LocalPosition.x

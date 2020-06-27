@@ -29,7 +29,8 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject, deathTimer);
         enemyAI.EnemyIsDead();
-        Destroy(this);
+        Destroy(this.GetComponent<CapsuleCollider>());
+        Destroy(this);  
     }
 
     public void DamagePlayerEvent()
