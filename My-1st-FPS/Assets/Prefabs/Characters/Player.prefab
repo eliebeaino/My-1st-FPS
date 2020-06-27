@@ -124,7 +124,6 @@ MonoBehaviour:
   wpnAnimator: {fileID: 3012950476977221519}
   controller: {fileID: 8193341927380545491}
   sensitivityZoomed: 0.3
-  zoomedOutFOV: 60
   zoomedInFOV: 15
   zoomSpeed: 2
   changeZoomDelay: 0.2
@@ -646,7 +645,6 @@ MonoBehaviour:
   wpnAnimator: {fileID: 3012950476977221519}
   controller: {fileID: 8193341927380545491}
   sensitivityZoomed: 0.5
-  zoomedOutFOV: 60
   zoomedInFOV: 25
   zoomSpeed: 4
   changeZoomDelay: 0.1
@@ -978,6 +976,7 @@ GameObject:
   - component: {fileID: 7023217911477757234}
   - component: {fileID: 7016173643482183542}
   - component: {fileID: 5704616760769658486}
+  - component: {fileID: 1782527801}
   m_Layer: 0
   m_Name: M249
   m_TagString: Untagged
@@ -1073,6 +1072,25 @@ MonoBehaviour:
   range: 100
   WpnDmg: 10
   fireRate: 0.1
+--- !u!114 &1782527801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6992896725484005512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88cfdea993fd18740850246aac53f38c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fpsCamera: {fileID: 8193341927373379607}
+  wpnAnimator: {fileID: 3012950476977221519}
+  controller: {fileID: 8193341927380545491}
+  sensitivityZoomed: 0.8
+  zoomedInFOV: 40
+  zoomSpeed: 5
+  changeZoomDelay: 0.2
 --- !u!1 &6992987321390059780
 GameObject:
   m_ObjectHideFlags: 0
@@ -1780,6 +1798,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5878936304203204990}
+  - component: {fileID: 170691878}
   m_Layer: 0
   m_Name: Weapons
   m_TagString: Untagged
@@ -1805,6 +1824,19 @@ Transform:
   m_Father: {fileID: 8193341927374915095}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &170691878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194346584711876058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c598d41ac1daf14dac177da7d6252ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeapon: 0
 --- !u!1001 &5820187214806689363
 PrefabInstance:
   m_ObjectHideFlags: 0
