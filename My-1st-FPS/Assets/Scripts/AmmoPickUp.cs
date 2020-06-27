@@ -9,7 +9,10 @@ public class AmmoPickUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        collision.GetComponent<Ammo>().IncreaseAmmo(ammotype, ammoAmount);
-        Destroy(gameObject);
+        if (collision.tag == "Player")
+        {
+            collision.GetComponent<Ammo>().IncreaseAmmo(ammotype, ammoAmount);
+            Destroy(gameObject);
+        }
     }
 }
