@@ -26,9 +26,9 @@ public class Ammo : MonoBehaviour
     }
 
     // increase corresponding ammo on pickup
-    public void IncreaseAmmo(int pickUpAmmo)
+    public void IncreaseAmmo(Ammotype ammotype, int pickUpAmmo)
     {
-        //ammoAmount = ammoAmount + pickUpAmmo;
+        GetAmmotSlot(ammotype).ammoAmount = GetAmmotSlot(ammotype).ammoAmount + pickUpAmmo;
     }
 
     // check which weapon we're using and get the ammo type from it

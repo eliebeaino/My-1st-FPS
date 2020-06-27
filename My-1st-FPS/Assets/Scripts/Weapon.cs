@@ -20,6 +20,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] float fireRate = 0.5f;
     bool canShoot = true;
 
+    // enables to weapon to shoot when swap back in to avoid bug not being able to shoot
     private void OnEnable()
     {
         StartCoroutine(ResetWpnCooldown());
@@ -81,6 +82,7 @@ public class Weapon : MonoBehaviour
         Destroy(hitVFX, 0.1f);
     }
 
+    // explained in OnEnable()
     IEnumerator ResetWpnCooldown()
     {
         if (canShoot)

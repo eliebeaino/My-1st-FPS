@@ -13,7 +13,7 @@ public class WeaponZoom : MonoBehaviour
 
     [Header("Zoom Propreties")]
     [SerializeField] float sensitivityZoomed = 0.5f;
-    float sensitivityDefault;                                   // mouse sensitivity default stored on start from player
+    float sensitivityDefault =2f;                               // mouse sensitivity default stored on start from player
 
     float zoomedOutFOV =60f;
     [SerializeField] float zoomedInFOV = 20f;
@@ -24,13 +24,6 @@ public class WeaponZoom : MonoBehaviour
     bool zoomInToggle = false;                                  // store zoom state in/out
     bool zooming = false;                                       // are we currently zooming ?
 
-    private void OnEnable()
-    {
-        fpsCamera.fieldOfView = zoomedOutFOV;
-        zooming = false;
-        zoomInToggle = false;
-        wpnAnimator.SetBool("ZoomedIn", false);
-    }
 
     private void Start()
     {
@@ -51,24 +44,38 @@ public class WeaponZoom : MonoBehaviour
         zooming = true;
         if (zoomInToggle == false)
         {
-            zoomInToggle = true;
-            wpnAnimator.SetBool("ZoomedIn", true);
-            controller.mouseLook.XSensitivity = sensitivityZoomed;
-            controller.mouseLook.YSensitivity = sensitivityZoomed;
-            StartCoroutine(ZoomIn());
+            ZoomIn();
         }
         else
         {
-            zoomInToggle = false;
-            wpnAnimator.SetBool("ZoomedIn", false);
-            controller.mouseLook.XSensitivity = sensitivityDefault;
-            controller.mouseLook.YSensitivity = sensitivityDefault;
-            StartCoroutine(ZoomOut());
+            ZoomOut();
         }
     }
 
+    // toggle zoom - start animation - slow mouse speed
+    private void ZoomIn()
+    {
+        zoomInToggle = true;
+        wpnAnimator.SetBool("Disable", false);
+        wpnAnimator.SetBool("ZoomedIn", true);
+        controller.mouseLook.XSensitivity = sensitivityZoomed;
+        controller.mouseLook.YSensitivity = sensitivityZoomed;
+        StartCoroutine(SmoothZoomIn());
+    }
+
+    // toggle zoom off - revert back animation - reset mouse speed
+    private void ZoomOut()
+    {
+        zoomInToggle = false;
+        wpnAnimator.SetBool("Disable", false);
+        wpnAnimator.SetBool("ZoomedIn", false);
+        controller.mouseLook.XSensitivity = sensitivityDefault;
+        controller.mouseLook.YSensitivity = sensitivityDefault;
+        StartCoroutine(SmoothZoomOut());
+    }
+
     // smoothly zoom in with adding delay to zoom out if spam clicking
-    IEnumerator ZoomIn()
+    IEnumerator SmoothZoomIn()
     {
         while (fpsCamera.fieldOfView > zoomedInFOV)
         {
@@ -81,7 +88,7 @@ public class WeaponZoom : MonoBehaviour
     }
 
     // smoothly zoom out with adding delay to zoom in if spam clicking
-    IEnumerator ZoomOut()
+    IEnumerator SmoothZoomOut()
     {
         while (fpsCamera.fieldOfView < zoomedOutFOV)
         {
@@ -92,5 +99,17 @@ public class WeaponZoom : MonoBehaviour
         }
         yield return new WaitForSeconds(changeZoomDelay);
         if (fpsCamera.fieldOfView >= zoomedOutFOV) zooming = false;
+    }
+
+    // resets position instantly (to avoid visual bug) - all parameter defaults (zooming/animation/sensitivity)
+    private void OnDisable()
+    {
+        fpsCamera.fieldOfView = zoomedOutFOV;
+        zooming = false;
+        zoomInToggle = false;
+        wpnAnimator.SetBool("Disable", true);
+        wpnAnimator.SetBool("ZoomedIn", false);
+        controller.mouseLook.XSensitivity = sensitivityDefault;
+        controller.mouseLook.YSensitivity = sensitivityDefault;
     }
 }
