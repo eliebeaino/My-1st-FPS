@@ -88,7 +88,7 @@ public class EnemyAI : MonoBehaviour
     // start Death Animation and stop the enemy movement - called once when enemy health reaches 0
     public void EnemyIsDead()
     {
-        navMeshAgent.isStopped = true;
+        navMeshAgent.enabled= false;
         animator.SetTrigger("Dead");
         isAlive = false;
     }

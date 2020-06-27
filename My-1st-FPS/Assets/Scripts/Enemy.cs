@@ -29,10 +29,11 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject, deathTimer);
         enemyAI.EnemyIsDead();
-        Destroy(this.GetComponent<CapsuleCollider>());
-        Destroy(this);  
+        this.GetComponent<CapsuleCollider>().enabled = false;
+        this.enabled = false;  
     }
 
+    // called from animator
     public void DamagePlayerEvent()
     {
         var player = enemyAI.target.GetComponent<Player>();
