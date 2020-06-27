@@ -127,6 +127,7 @@ MonoBehaviour:
   zoomedOutFOV: 60
   zoomedInFOV: 15
   zoomSpeed: 2
+  changeZoomDelay: 0.2
 --- !u!1 &432623199030721997
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,6 +649,7 @@ MonoBehaviour:
   zoomedOutFOV: 60
   zoomedInFOV: 25
   zoomSpeed: 4
+  changeZoomDelay: 0.1
 --- !u!1 &5506458364232289383
 GameObject:
   m_ObjectHideFlags: 0
