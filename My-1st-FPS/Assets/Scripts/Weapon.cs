@@ -9,24 +9,61 @@ public class Weapon : MonoBehaviour
     [SerializeField] Camera FPCamera;
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject hitSpark;
+    [SerializeField] Ammo ammoSlot;
+    [SerializeField] AudioClip WpnSFX;
+    [SerializeField] AudioSource audioSource;
 
     [Header("Weapon Stats")]
     [SerializeField] float range = 100f;
-    [SerializeField] float WpnDmg = 1f;
-
+    [SerializeField] float WpnDmg = 25f;
+    [SerializeField] float InitFireRate = 0.5f;
+    float fireRate = 0f;
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetMouseButton(0) && CanWeShoot() && FireRate())
         {
             Shoot();
         }
+        else if (Input.GetMouseButtonDown(0) && CanWeShoot() && FireRate())
+        {
+            Shoot();
+        }
+        else if (fireRate > 0)
+        { 
+            fireRate -= Time.deltaTime;
+        }
+    }
+
+    private bool FireRate()
+    {
+        if (fireRate > 0)
+        {
+            fireRate -= Time.deltaTime;
+            return false;
+        }
+        else
+        {
+            fireRate = InitFireRate;
+            return true;
+        }
+    }
+
+    // check we can shoot
+    private bool CanWeShoot()
+    {
+        if (ammoSlot.GetCurrentAmmo() > 0)
+            return true;
+        else 
+            return false;
     }
 
     private void Shoot()
     {
         PlayMuzzleFlash();
         ProcessRaycast();
+        ammoSlot.DecreaseAmmo();
+        audioSource.PlayOneShot(WpnSFX);
     }
 
     // play the muzzle flash vfx when shooting
