@@ -8,8 +8,9 @@ public class WeaponZoom : MonoBehaviour
 {
     [Header("Storing Components")]
     [SerializeField] Camera fpsCamera;
-    Animator animator;
     [SerializeField] RigidbodyFirstPersonController controller;
+    [SerializeField] GameObject reticleNormal;
+    Animator animator;
 
     [Header("Zoom Propreties")]
     [SerializeField] float sensitivityZoomed = 0.5f;
@@ -62,6 +63,7 @@ public class WeaponZoom : MonoBehaviour
         controller.mouseLook.XSensitivity = sensitivityZoomed;
         controller.mouseLook.YSensitivity = sensitivityZoomed;
         StartCoroutine(SmoothZoomIn());
+        reticleNormal.SetActive(false);
     }
 
     // toggle zoom off - revert back animation - reset mouse speed
@@ -73,6 +75,7 @@ public class WeaponZoom : MonoBehaviour
         controller.mouseLook.XSensitivity = sensitivityDefault;
         controller.mouseLook.YSensitivity = sensitivityDefault;
         StartCoroutine(SmoothZoomOut());
+        reticleNormal.SetActive(true);
     }
 
     // smoothly zoom in with adding delay to zoom out if spam clicking
@@ -112,5 +115,6 @@ public class WeaponZoom : MonoBehaviour
         animator.SetBool("ZoomedIn", false);
         controller.mouseLook.XSensitivity = sensitivityDefault;
         controller.mouseLook.YSensitivity = sensitivityDefault;
+        reticleNormal.SetActive(true);
     }
 }
