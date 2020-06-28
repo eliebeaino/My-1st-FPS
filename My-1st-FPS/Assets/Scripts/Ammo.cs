@@ -43,4 +43,9 @@ public class Ammo : MonoBehaviour
         }
         return null;
     }
+
+    public int GetAmmoUI(Ammotype ammotype)
+    {
+        return GetAmmotSlot(ammotype).ammoAmount;
+    }
 }
