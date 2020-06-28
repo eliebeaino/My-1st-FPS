@@ -1072,6 +1072,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4072748677784761293, guid: 0a86eddd7baa22f4b8325923cf95adfa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 54ee8e39b634b6d45aae528b6b24e879, type: 2}
     - target: {fileID: 4072748677784761295, guid: 0a86eddd7baa22f4b8325923cf95adfa,
         type: 3}
       propertyPath: m_Name
@@ -1814,10 +1819,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2374819177578709839, guid: ab5d854569ee396409b21ecab5b90e82,
+    - target: {fileID: 3007872427181405903, guid: ab5d854569ee396409b21ecab5b90e82,
         type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
+      propertyPath: m_FillAmount
+      value: 0.772
       objectReference: {fileID: 0}
     - target: {fileID: 4778228295945054928, guid: ab5d854569ee396409b21ecab5b90e82,
         type: 3}
@@ -1879,18 +1884,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 4778228296488154147, guid: ab5d854569ee396409b21ecab5b90e82,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4778228297269464688, guid: ab5d854569ee396409b21ecab5b90e82,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab5d854569ee396409b21ecab5b90e82, type: 3}
+--- !u!1 &4778228296323531043 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4484975347580185982, guid: ab5d854569ee396409b21ecab5b90e82,
+    type: 3}
+  m_PrefabInstance: {fileID: 4778228296323531042}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4778228296323531044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4778228296323531043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e23eb27d789c0d1439206165cc31dbc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
 --- !u!1001 &5936245985486721012
 PrefabInstance:
   m_ObjectHideFlags: 0

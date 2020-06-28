@@ -22,4 +22,9 @@ public class Player : MonoBehaviour
     {
         GetComponent<DeathHandler>().HandleDeath();
     }
+
+    public float PlayerCurrentHealthLevel()
+    {
+        return playerHealth;
+    }
 }

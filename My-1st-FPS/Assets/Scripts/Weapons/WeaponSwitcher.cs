@@ -52,7 +52,7 @@ public class WeaponSwitcher : MonoBehaviour
     {
         if (Input.mouseScrollDelta.y < 0)
         {
-            if (currentWeapon >= transform.childCount - 2)
+            if (currentWeapon >= transform.childCount - 1)
             {
                 currentWeapon = 0;
             }
@@ -65,7 +65,7 @@ public class WeaponSwitcher : MonoBehaviour
         {
             if (currentWeapon <= 0)
             {
-                currentWeapon = transform.childCount -2;
+                currentWeapon = transform.childCount -1;
             }
             else
             {

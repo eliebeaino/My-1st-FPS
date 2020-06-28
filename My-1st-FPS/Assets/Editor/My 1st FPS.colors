@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: My 1st FPS
   m_EditorClassIdentifier: 
   m_Presets:
-  - m_Name: UI text
-    m_Color: {r: 1, g: 0.4447487, b: 0, a: 1}
+  - m_Name: UI Text
+    m_Color: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 1}
