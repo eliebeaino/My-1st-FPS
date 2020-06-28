@@ -145,7 +145,7 @@ AnimatorStateTransition:
     m_ConditionEvent: ZoomedIn
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: Disabled
+    m_ConditionEvent: Disable
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8820572994276808958}
@@ -204,7 +204,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: Disabled
+  - m_Name: Disable
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -241,7 +241,7 @@ AnimatorStateTransition:
     m_ConditionEvent: ZoomedIn
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: Disabled
+    m_ConditionEvent: Disable
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8820572994276808958}
