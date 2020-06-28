@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &434745522408727397
 Transform:
   m_ObjectHideFlags: 0
@@ -106,6 +106,7 @@ MonoBehaviour:
   ammotype: 2
   WpnSFX: {fileID: 8300000, guid: 6010ad5fb7bb41242bd94994c680c03d, type: 3}
   audioSource: {fileID: 1173410940}
+  animator: {fileID: 0}
   range: 100
   WpnDmg: 80
   fireRate: 2
@@ -125,7 +126,7 @@ MonoBehaviour:
   wpnAnimator: {fileID: 3012950476977221519}
   controller: {fileID: 8193341927380545491}
   sensitivityZoomed: 0.3
-  zoomedInFOV: 15
+  zoomedInFOV: 5
   zoomSpeed: 2
   changeZoomDelay: 0.2
 --- !u!1 &432623199030721997
@@ -536,13 +537,14 @@ GameObject:
   - component: {fileID: 5506458364234289829}
   - component: {fileID: 2105871956}
   - component: {fileID: 118395744}
+  - component: {fileID: 1321113673}
   m_Layer: 0
   m_Name: AK47
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5506458364232388677
 Transform:
   m_ObjectHideFlags: 0
@@ -628,6 +630,7 @@ MonoBehaviour:
   ammotype: 0
   WpnSFX: {fileID: 8300000, guid: 663d1872be6285045ad4860c9d203025, type: 3}
   audioSource: {fileID: 1173410940}
+  animator: {fileID: 1321113673}
   range: 100
   WpnDmg: 30
   fireRate: 0.17
@@ -644,12 +647,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fpsCamera: {fileID: 8193341927373379607}
-  wpnAnimator: {fileID: 3012950476977221519}
+  wpnAnimator: {fileID: 1321113673}
   controller: {fileID: 8193341927380545491}
   sensitivityZoomed: 0.5
   zoomedInFOV: 25
   zoomSpeed: 4
   changeZoomDelay: 0.1
+--- !u!95 &1321113673
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5506458364232289381}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0d4c6990b2119244bbf76e774637e086, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5506458364232289383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1072,6 +1094,7 @@ MonoBehaviour:
   ammotype: 1
   WpnSFX: {fileID: 8300000, guid: 9f37c7c1c4f6a224a850c368b7c45d06, type: 3}
   audioSource: {fileID: 1173410940}
+  animator: {fileID: 0}
   range: 100
   WpnDmg: 10
   fireRate: 0.08
@@ -1515,8 +1538,8 @@ Camera:
   m_GameObject: {fileID: 8193341927374494259}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

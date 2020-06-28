@@ -13,6 +13,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] Ammotype ammotype;
     [SerializeField] AudioClip WpnSFX;
     [SerializeField] AudioSource audioSource;
+    Animator animator;
 
     [Header("Weapon Stats")]
     [SerializeField] float range = 100f;
@@ -25,13 +26,17 @@ public class Weapon : MonoBehaviour
     {
         StartCoroutine(ResetWpnCooldown());
     }
-
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
     void Update()
     {
         if (Input.GetMouseButton(0) && HaveAmmo() && canShoot)
         {
             StartCoroutine(Shoot());
         }
+        else animator.SetBool("Firing", false);
     }
 
     // check if we have enough ammo
@@ -50,6 +55,7 @@ public class Weapon : MonoBehaviour
         ProcessRaycast();
         ammoSlot.DecreaseAmmo(ammotype);
         audioSource.PlayOneShot(WpnSFX);
+        animator.SetBool("Firing", true);
         yield return new WaitForSeconds(fireRate);
         canShoot = true;
     }

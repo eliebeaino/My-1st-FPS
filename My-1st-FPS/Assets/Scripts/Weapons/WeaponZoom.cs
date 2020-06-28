@@ -8,7 +8,7 @@ public class WeaponZoom : MonoBehaviour
 {
     [Header("Storing Components")]
     [SerializeField] Camera fpsCamera;
-    [SerializeField] Animator wpnAnimator;
+    Animator animator;
     [SerializeField] RigidbodyFirstPersonController controller;
 
     [Header("Zoom Propreties")]
@@ -28,6 +28,7 @@ public class WeaponZoom : MonoBehaviour
     private void Start()
     {
         sensitivityDefault = controller.mouseLook.XSensitivity;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -56,8 +57,8 @@ public class WeaponZoom : MonoBehaviour
     private void ZoomIn()
     {
         zoomInToggle = true;
-        wpnAnimator.SetBool("Disable", false);
-        wpnAnimator.SetBool("ZoomedIn", true);
+        animator.SetBool("Disable", false);
+        animator.SetBool("ZoomedIn", true);
         controller.mouseLook.XSensitivity = sensitivityZoomed;
         controller.mouseLook.YSensitivity = sensitivityZoomed;
         StartCoroutine(SmoothZoomIn());
@@ -67,8 +68,8 @@ public class WeaponZoom : MonoBehaviour
     private void ZoomOut()
     {
         zoomInToggle = false;
-        wpnAnimator.SetBool("Disable", false);
-        wpnAnimator.SetBool("ZoomedIn", false);
+        animator.SetBool("Disable", false);
+        animator.SetBool("ZoomedIn", false);
         controller.mouseLook.XSensitivity = sensitivityDefault;
         controller.mouseLook.YSensitivity = sensitivityDefault;
         StartCoroutine(SmoothZoomOut());
@@ -107,8 +108,8 @@ public class WeaponZoom : MonoBehaviour
         fpsCamera.fieldOfView = zoomedOutFOV;
         zooming = false;
         zoomInToggle = false;
-        wpnAnimator.SetBool("Disable", true);
-        wpnAnimator.SetBool("ZoomedIn", false);
+        animator.SetBool("Disable", true);
+        animator.SetBool("ZoomedIn", false);
         controller.mouseLook.XSensitivity = sensitivityDefault;
         controller.mouseLook.YSensitivity = sensitivityDefault;
     }
