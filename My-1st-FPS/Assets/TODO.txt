@@ -1,0 +1,11 @@
+
+LIST TO DO:
+- Add Recoil
+- animate change weapon and hold fire
+- pickups random generated from enemies
+- add fences and make small level with colliders in areas to avoid crossing over
+- add grass
+- add textures to terrain
+
+BUGS:
+-

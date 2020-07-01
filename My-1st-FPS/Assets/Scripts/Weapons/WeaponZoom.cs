@@ -23,7 +23,7 @@ public class WeaponZoom : MonoBehaviour
     float t;                                                    // interpolation value for zoom value used with zoom speed and delta time
 
     bool zoomInToggle = false;                                  // store zoom state in/out
-    bool zooming = false;                                       // are we currently zooming ?
+    public bool zooming = false;                                       // are we currently zooming ?
 
 
     private void Start()

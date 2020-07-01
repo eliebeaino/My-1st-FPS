@@ -14,6 +14,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] AudioClip WpnSFX;
     [SerializeField] AudioSource audioSource;
     Animator animator;
+    WeaponZoom weaponZoom;
 
     [Header("Weapon Stats")]
     [SerializeField] float range = 100f;
@@ -26,13 +27,19 @@ public class Weapon : MonoBehaviour
     {
         StartCoroutine(ResetWpnCooldown());
     }
+
     private void Start()
     {
         animator = GetComponent<Animator>();
+        weaponZoom = GetComponent<WeaponZoom>();
     }
+
     void Update()
     {
-        if (Input.GetMouseButton(0) && HaveAmmo() && canShoot)
+        if (Input.GetMouseButton(0) 
+            && HaveAmmo() 
+            && canShoot 
+            && !weaponZoom.zooming)
         {
             StartCoroutine(Shoot());
         }
@@ -53,11 +60,17 @@ public class Weapon : MonoBehaviour
         canShoot = false;
         PlayMuzzleFlash();
         ProcessRaycast();
+        Recoil();
         ammoSlot.DecreaseAmmo(ammotype);
         audioSource.PlayOneShot(WpnSFX);
         animator.SetBool("Firing", true);
         yield return new WaitForSeconds(fireRate);
         canShoot = true;
+    }
+
+    private void Recoil()
+    {
+        // todo
     }
 
     // play the muzzle flash vfx when shooting
