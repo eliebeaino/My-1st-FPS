@@ -8,10 +8,10 @@ using UnityStandardAssets.Cameras;
 
 public class EnemyAI : MonoBehaviour
 {
-    [Header("Import Assets")]
-    public Transform target;
-    [SerializeField] Animator animator;  
-    [SerializeField] NavMeshAgent navMeshAgent;
+    //Import Assets
+    Transform target;
+    Animator animator;  
+    NavMeshAgent navMeshAgent;
 
     [Header("Enemy Propreties")]
     [SerializeField] float chaseRange = 5f;         // range at which the enemy starts chasing the target
@@ -20,6 +20,12 @@ public class EnemyAI : MonoBehaviour
     bool isProvoked;
     bool isAlive = true;
 
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        target = FindObjectOfType<Player>().transform;
+    }
 
     void Update()
     {
@@ -91,5 +97,11 @@ public class EnemyAI : MonoBehaviour
         navMeshAgent.enabled= false;
         animator.SetTrigger("Dead");
         isAlive = false;
+    }
+
+    // gets the target location for other scripts
+    public Transform TargetLocation()
+    {
+        return target;
     }
 }

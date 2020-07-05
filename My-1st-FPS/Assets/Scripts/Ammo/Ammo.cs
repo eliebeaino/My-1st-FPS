@@ -44,6 +44,7 @@ public class Ammo : MonoBehaviour
         return null;
     }
 
+    // updates the current corresponding ammo amount to UI
     public int GetAmmoUI(Ammotype ammotype)
     {
         return GetAmmotSlot(ammotype).ammoAmount;

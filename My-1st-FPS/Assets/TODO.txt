@@ -2,10 +2,11 @@
 LIST TO DO:
 - Add Recoil
 - animate change weapon and hold fire
-- pickups random generated from enemies
+- pickups random generated from enemies upon death (loot)
 - add fences and make small level with colliders in areas to avoid crossing over
 - add grass
-- add textures to terrain
+- add textures to terrain (pathing route for example)
+- Add Damage UI
 
 BUGS:
 -

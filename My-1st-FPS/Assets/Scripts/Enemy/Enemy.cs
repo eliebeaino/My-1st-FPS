@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
     // called from animator
     public void DamagePlayerEvent()
     {
-        var player = enemyAI.target.GetComponent<Player>();
+        var player = enemyAI.TargetLocation().GetComponent<Player>();
         if (player == null) return;
         player.TakeDmg(enemyDamage);
         // todo add visual queue for player damage
